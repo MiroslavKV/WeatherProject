@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to Weather Sphere{% endblock %}</h1>
+
+    <div class="container">
+        <h2>{{data.name}}, {{data.sys.country}}</h2>
+        <table class="table">
+                <tr>
+                    <td><strong>Temperature:</strong> {{data.main.temp}}°C</td>
+                    <td><strong>Humidity:</strong> {{data.main.humidity}}%</td>
+                    <td><strong>Weather:</strong> {{data.weather[0].main}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Pressure:</strong> {{data.main.pressure}} hPa</td>
+                    <td><strong>Wind Speed:</strong> {{data.wind.speed}} m/s</td>
+                    <td>Visibility: {{data.visibility}} m</td>
+                </tr>
+        </table>
+        <img src="https://openweathermap.org/img/wn/{{ data.weather[0].icon }}@2x.png">
+    </div>
+{% endblock %}
